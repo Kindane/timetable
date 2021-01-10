@@ -22,7 +22,6 @@ time_format = "%H:%M"
 try:
     with open("config.json") as file:
         config = json_load(file)
-    #today = config["timetable"]["tuesday"]  # 'cause today is saturday
     today = config["timetable"][datetime.now().strftime("%A").lower()]
 except FileNotFoundError:
     print("Я не могу найти config.json.\nПожалуйста, прочитайте файл README.md")
@@ -57,8 +56,7 @@ if choice == '1':
 
 elif choice == '2':
     clear_console()
-    #now = datetime.strptime(datetime.now().strftime(time_format), time_format)
-    now = datetime.strptime("11:15", time_format)
+    now = datetime.strptime(datetime.now().strftime(time_format), time_format)
     lesson_number = -1
     is_coffe_break = False
     for i in range(len(today)):
