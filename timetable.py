@@ -50,9 +50,9 @@ if choice == '1':
     clear_console()
     for i in range(len(today)):
         lesson = today[i]
-        print(f"{lesson}", end="")
+        print(f"{lesson}", end="\t\t")
         # i don't know how, but this works pretty good :D
-        print(f"{callShedule[i]}".rjust(30-len(lesson)))
+        print(f"{callShedule[i]}")
 
 elif choice == '2':
     clear_console()
