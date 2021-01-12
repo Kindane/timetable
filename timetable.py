@@ -7,6 +7,7 @@ from datetime import datetime
 from json import load as json_load
 from platform import system as get_os_type
 from os import system as system_command
+from os import getcwd as pwd
 
 
 def clear_console():
@@ -24,6 +25,7 @@ try:
         config = json_load(file)
     today = config["timetable"][datetime.now().strftime("%A").lower()]
 except FileNotFoundError:
+    print(pwd())
     print("Я не могу найти config.json.\nПожалуйста, прочитайте файл README.md")
     print("I can't find config.json.\nPlease, read README.md file")
     input()
@@ -88,3 +90,5 @@ elif choice == '2':
     else:
         print("Следующий урок: {}".format(today[lesson_number+1]))
         print("Начало урока через: {} минут(ы)".format(int((next_start_lesson-now).seconds/60)))
+
+input("\nPress Enter to exit")
